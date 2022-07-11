@@ -1,17 +1,19 @@
 import { View } from './style'
+import { useFn } from '@/hooks'
 
-const copy = () => {
-  alert('请选择导出方式')
-}
+import { observer } from 'mobx-react'
+import store from '@/hooks'
 
 const App = () => (
   <View>
+    <p>main</p>
+    count: {store.amount}
     <p className='operation'>
-      <span onClick={copy}>copy</span>
+      <span>copy</span>
       <span>clear</span>
     </p>
     <div className='view-list'></div>
   </View>
 )
 
-export default App
+export default observer(App)
