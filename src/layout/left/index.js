@@ -1,22 +1,35 @@
 import module from '@/utils/local-data.js'
-import { Button } from 'antd'
+import { Button } from 'antd-mobile'
 import { ButtonStyle } from './style'
 
 import { observer } from 'mobx-react'
-import store from '@/hooks'
+import store from '@/store'
 
-function App() {
+const f = item => {
+  const obj = {}
+  for (var i in item) {
+    if (i !== 'name') {
+      obj[i] = item[i]
+    }
+  }
+  return obj
+}
+
+const App = () => {
   return (
     <ButtonStyle>
-      count: {store.amount}
-      <button onClick={() => store.increment()}>add +1</button>
-      {/* {Object.keys(module).map(item => {
+      {Object.keys(module).map(item => {
         return (
-          <Button value='default' key={item} className='btn'>
+          <Button
+            color='primary'
+            fill='outline'
+            key={item}
+            className='btn'
+            onClick={() => store.addComponent(f(module[item]), item)}>
             {module[item].comName}
           </Button>
         )
-      })} */}
+      })}
     </ButtonStyle>
   )
 }

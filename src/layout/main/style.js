@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-export const View = styled.div`
+export const Wrapper = styled.div`
   ::-webkit-scrollbar {
     width: 0;
   }
@@ -7,6 +7,7 @@ export const View = styled.div`
   flex-direction: column;
   align-items: center;
   background: rgb(249, 249, 249);
+  height: 100vh;
   .operation {
     padding: 20px 0;
     span {
@@ -19,5 +20,7 @@ export const View = styled.div`
     border: 1px solid rgb(235, 234, 234);
     background: #fff;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
   }
 `

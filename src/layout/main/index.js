@@ -1,19 +1,23 @@
-import { View } from './style'
-import { useFn } from '@/hooks'
+import store from '@/store'
+import module from '@/utils/local-data'
 
 import { observer } from 'mobx-react'
-import store from '@/hooks'
+import React from 'react'
+import { Wrapper } from './style'
 
 const App = () => (
-  <View>
-    <p>main</p>
-    count: {store.amount}
+  <Wrapper>
     <p className='operation'>
       <span>copy</span>
       <span>clear</span>
     </p>
-    <div className='view-list'></div>
-  </View>
+    {/* 是否可用createElement改进这个地方 */}
+    <div className='view-list'>
+      {store.components.map((item, index) => (
+        <React.Fragment key={index}>{module[item.name].name()}</React.Fragment>
+      ))}
+    </div>
+  </Wrapper>
 )
 
 export default observer(App)
