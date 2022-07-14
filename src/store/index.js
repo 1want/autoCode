@@ -16,12 +16,19 @@ class TestStore {
   // }
 
   // action
-  addComponent(com, name) {
+  addComponent(com) {
     this.components.push({
       ...com,
-      name,
       id: ++this.id
     })
+  }
+
+  chooseComponents(com) {
+    this.comDetail = this.components.find(item => com.id === item.id)
+  }
+
+  modifyStyle(type, style) {
+    this.comDetail[type] = style
     console.log(this.components)
   }
 }

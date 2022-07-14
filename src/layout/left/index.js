@@ -5,15 +5,15 @@ import { ButtonStyle } from './style'
 import { observer } from 'mobx-react'
 import store from '@/store'
 
-const f = item => {
-  const obj = {}
-  for (var i in item) {
-    if (i !== 'name') {
-      obj[i] = item[i]
-    }
-  }
-  return obj
-}
+// const f = item => {
+//   const obj = {}
+//   for (var i in item) {
+//     if (i !== 'name') {
+//       obj[i] = item[i]
+//     }
+//   }
+//   return obj
+// }
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
             fill='outline'
             key={item}
             className='btn'
-            onClick={() => store.addComponent(f(module[item]), item)}>
+            onClick={() => store.addComponent(module[item], item)}>
             {module[item].comName}
           </Button>
         )

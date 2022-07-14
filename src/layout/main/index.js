@@ -14,7 +14,9 @@ const App = () => (
     {/* 是否可用createElement改进这个地方 */}
     <div className='view-list'>
       {store.components.map((item, index) => (
-        <React.Fragment key={index}>{module[item.name].name()}</React.Fragment>
+        <div onClick={() => store.chooseComponents(item)} key={index}>
+          {module[item.tag].name()}
+        </div>
       ))}
     </div>
   </Wrapper>
