@@ -2,19 +2,33 @@ import store from '@/store'
 import module from '@/utils/local-data'
 import { observer } from 'mobx-react'
 import buildTemplate from '@/utils/generator'
+import Clipboard from 'clipboard'
+import { Toast } from 'antd-mobile'
 
 import { Wrapper } from './style'
 
 const copy = () => {
   const tmp = buildTemplate(store.components)
-  console.log(tmp)
+
+  var clipboard = new Clipboard('#copyTmp', {
+    text: () => tmp
+  })
+  clipboard.on('success', () => {
+    Toast.show({
+      content: '复制成功',
+      duration: 1500
+    })
+    clipboard.destroy()
+  })
 }
 
 const App = () => {
   return (
     <Wrapper>
       <p className='operation'>
-        <span onClick={() => copy()}>copy</span>
+        <span onClick={() => copy()} id='copyTmp'>
+          copy
+        </span>
         <span onClick={() => store.clear()}>clear</span>
       </p>
       {/* 是否可用createElement改进这个地方 */}

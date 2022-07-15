@@ -1,5 +1,5 @@
 const parseHtml = {
-  'van-button': item => {
+  button: item => {
     return `<${item.tag} type="${item.type}" size="${item.size}">按钮</${item.tag}>`
   },
   'van-row': item => {

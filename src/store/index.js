@@ -4,6 +4,7 @@ class TestStore {
   components = []
   comDetail = {}
   id = 0
+  num = 0
 
   constructor() {
     // 自动监听所有属性
@@ -16,6 +17,10 @@ class TestStore {
   // }
 
   // action
+
+  add() {
+    this.num++
+  }
   addComponent(com) {
     this.components.push({
       ...com,

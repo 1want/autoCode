@@ -39,20 +39,19 @@ function parseComponents(arr) {
 }
 
 function buildTemplate(components) {
-  console.log(components)
-  // const com = parseComponents(components.value)
-
+  const com = parseComponents(components)
   // let tmp = vueTemplate(com)
 
-  // const formatTmp = prettier.format(tmp, {
-  //   parser: 'vue',
-  //   plugins: [parserHtml, parserBabel],
-  //   semi: false,
-  //   singleQuote: true,
-  //   arrowParens: 'avoid'
-  //   // jsxBracketSameLine: true
-  // })
-  // return formatTmp
+  const formatTmp = prettier.format(com, {
+    parser: 'html',
+    plugins: [parserHtml, parserBabel],
+    semi: false,
+    singleQuote: true,
+    arrowParens: 'avoid'
+    // jsxBracketSameLine: true
+  })
+
+  return formatTmp
 }
 
 export default buildTemplate
