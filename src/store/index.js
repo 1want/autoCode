@@ -29,7 +29,12 @@ class TestStore {
 
   modifyStyle(type, style) {
     this.comDetail[type] = style
-    console.log(this.components)
+  }
+
+  clear() {
+    this.components = []
+    this.comDetail = []
+    this.id = 0
   }
 }
 

@@ -8,7 +8,7 @@ import TabBar from '@/components/tab-bar/index.js'
 
 const modules = {
   button: {
-    type: 'success',
+    type: 'primary',
     name: Button,
     comName: '按钮',
     tag: 'button',

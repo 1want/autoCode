@@ -5,16 +5,6 @@ import { ButtonStyle } from './style'
 import { observer } from 'mobx-react'
 import store from '@/store'
 
-// const f = item => {
-//   const obj = {}
-//   for (var i in item) {
-//     if (i !== 'name') {
-//       obj[i] = item[i]
-//     }
-//   }
-//   return obj
-// }
-
 const App = () => {
   return (
     <ButtonStyle>

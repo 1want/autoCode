@@ -1,20 +1,36 @@
 import store from '@/store'
 import { Button } from 'antd-mobile'
 
+const state = {
+  type: ['success', 'primary', 'danger', 'default']
+}
+
 const App = props => {
-  const { property } = props || {}
+  const { property, type, comName } = props || {}
   return (
     <div>
-      {!property ? (
-        <Button value='default' className='btn'>
+      {property ? (
+        <div className='property'>
+          <p>组件名称: {comName}</p>
+          <div>
+            <p>
+              属性选择:
+              <select
+                value={type}
+                onChange={e => store.modifyStyle('type', e.target.value)}>
+                {state.type.map(item => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </p>
+          </div>
+        </div>
+      ) : (
+        <Button color={type} className='btn'>
           btn
         </Button>
-      ) : (
-        <div>
-          <p onClick={() => store.modifyStyle('type', 'success')}>success</p>
-          <p>danger</p>
-          <p>primary</p>
-        </div>
       )}
     </div>
   )
