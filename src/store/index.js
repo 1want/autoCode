@@ -4,7 +4,8 @@ class TestStore {
   components = []
   comDetail = {}
   id = 0
-  num = 0
+  cli = 'origin'
+  ui = 'origin'
 
   constructor() {
     // 自动监听所有属性
@@ -34,6 +35,10 @@ class TestStore {
 
   modifyStyle(type, style) {
     this.comDetail[type] = style
+  }
+
+  chooseUi(type, value) {
+    this[type] = value
   }
 
   clear() {

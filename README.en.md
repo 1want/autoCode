@@ -2,7 +2,7 @@ English | [中文](./README.md)
 
 ### introduction
 
-Visual creation of H5 page, one-click generation of VUE3 code
+Visual creation of H5 page, Generate corresponding code
 
 ### Code flow
 
