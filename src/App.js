@@ -6,15 +6,9 @@ import { AppStyle } from '@/assets/css/AppStyle.js'
 function App() {
   return (
     <AppStyle>
-      <div className='left'>
-        <Left></Left>
-      </div>
-      <div className='main'>
-        <Main></Main>
-      </div>
-      <div className='right'>
-        <Right></Right>
-      </div>
+      <Left></Left>
+      <Main></Main>
+      <Right></Right>
     </AppStyle>
   )
 }

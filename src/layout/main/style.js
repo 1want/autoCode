@@ -3,6 +3,7 @@ export const Wrapper = styled.div`
   ::-webkit-scrollbar {
     width: 0;
   }
+  width: 540px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +15,7 @@ export const Wrapper = styled.div`
       margin: 0 20px;
       cursor: pointer;
       position: relative;
+      font-size: 17px;
       :after {
         content: attr(data-text);
         display: none;

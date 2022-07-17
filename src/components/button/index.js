@@ -11,7 +11,6 @@ const App = props => {
     <div>
       {property ? (
         <div className='property'>
-          <p>组件名称: {comName}</p>
           <div>
             <p>
               属性选择:
