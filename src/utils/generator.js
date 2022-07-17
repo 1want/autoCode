@@ -16,18 +16,6 @@ function vueTemplate(str) {
   </template>`
 }
 
-function vueScript(str) {
-  return `<script setup>
-    ${str}
-  </script>`
-}
-
-function cssStyle(str) {
-  return `<style>
-    ${str}
-  </style>`
-}
-
 function parseComponents(arr) {
   let tmpString = ''
   arr.forEach(item => {
@@ -48,7 +36,6 @@ function buildTemplate(components) {
     semi: false,
     singleQuote: true,
     arrowParens: 'avoid'
-    // jsxBracketSameLine: true
   })
 
   return formatTmp

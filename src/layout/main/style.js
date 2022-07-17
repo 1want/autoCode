@@ -11,7 +11,22 @@ export const Wrapper = styled.div`
   .operation {
     padding: 20px 0;
     span {
-      margin: 0 10px;
+      margin: 0 20px;
+      cursor: pointer;
+      position: relative;
+      :after {
+        content: attr(data-text);
+        display: none;
+        position: absolute;
+        white-space: nowrap;
+        top: -20px;
+        left: -5px;
+      }
+      :hover {
+        :after {
+          display: inline-block;
+        }
+      }
     }
   }
   .view-list {

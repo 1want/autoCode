@@ -1,15 +1,17 @@
+import store from '@/store'
+
 const parseHtml = {
-  button: item => {
-    return `<${item.tag} type="${item.type}" size="${item.size}">按钮</${item.tag}>`
+  button: (item, tag) => {
+    return `<${tag} type="${item.type}" size="${item.size}">按钮</${tag}>`
   },
-  'van-row': item => {
+  row: item => {
     return `<${item.tag} justify="${item.justify}">
               <van-col span="6">span: 8</van-col>
               <van-col span="6">span: 8</van-col>
               <van-col span="6">span: 8</van-col>
             </${item.tag}>`
   },
-  'van-field': item => {
+  field: item => {
     return `<${item.tag} 
               v-model="${item.bind}" 
               disabled="${item.disabled}" 
@@ -17,10 +19,10 @@ const parseHtml = {
             >
             </${item.tag}>`
   },
-  'van-search': item => {
+  search: item => {
     return `<${item.tag} background="${item.bgColor}" left-icon="${item.icon}"></${item.tag}>`
   },
-  'van-swiper': item => {
+  swiper: item => {
     return `<${item.tag}>
               <van-swipe-item>1</van-swipe-item>
               <van-swipe-item>2</van-swipe-item>
@@ -28,7 +30,7 @@ const parseHtml = {
               <van-swipe-item>4</van-swipe-item>
             </${item.tag}>`
   },
-  'van-grid': item => {
+  grid: item => {
     return `<${item.tag} :column-num="${item.columnNum}">
               <van-grid-item v-for="(item,index) of ${item.allNum}" 
               :key="index" 
@@ -37,7 +39,7 @@ const parseHtml = {
             />
             </${item.tag}>`
   },
-  'van-tabbar': item => {
+  tabbar: item => {
     return `<${item.tag}>
               <van-tabbar-item icon="home-o">标签</van-tabbar-item>
               <van-tabbar-item icon="search">标签</van-tabbar-item>
@@ -47,26 +49,20 @@ const parseHtml = {
   }
 }
 
-const parseJs = {
-  'van-button': item => {
-    return ''
+const ui = {
+  van: {
+    button: 'van-button'
   },
-  'van-row': item => {
-    return ''
-  },
-  'van-field': item => {
-    return "const value = ref('')"
-  },
-  'van-search': item => {
-    return ''
-  },
-  'van-swiper': item => {
-    return ''
+  antd: {
+    button: 'Button'
   }
 }
 
 function formatTag(item) {
-  return parseHtml[item.tag](item)
+  if (store.ui === 'van' || store.ui === 'antd') {
+    return parseHtml[item.tag](item, ui[store.ui][item.tag])
+  }
+  return parseHtml[item.tag](item, store.ui)
 }
 
 export default formatTag

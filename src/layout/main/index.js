@@ -33,11 +33,15 @@ const App = () => {
     <Wrapper>
       {show && <Ts isShow={isShow}></Ts>}
       <p className='operation'>
-        <span onClick={() => copy()} id='copyTmp'>
+        <span data-text='复制代码' onClick={() => copy()} id='copyTmp'>
           copy
         </span>
-        <span onClick={() => store.clear()}>clear</span>
-        <span onClick={() => setShow(true)}>set</span>
+        <span data-text='清空视图' onClick={() => store.clear()}>
+          clear
+        </span>
+        <span data-text='设置' onClick={() => setShow(true)}>
+          set
+        </span>
       </p>
       {/* 是否可用createElement改进这个地方 */}
       {/* {每次当有一个属性被更改时，所有组件都会被重新渲染一次，如何优化} */}

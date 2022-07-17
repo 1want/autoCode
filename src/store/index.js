@@ -4,8 +4,8 @@ class TestStore {
   components = []
   comDetail = {}
   id = 0
-  cli = 'origin'
-  ui = 'origin'
+  cli = ''
+  ui = 'van-'
 
   constructor() {
     // 自动监听所有属性
