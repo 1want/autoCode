@@ -13,7 +13,8 @@ const modules = {
     tag: 'button',
     attribute: {
       size: 'normal',
-      type: 'primary'
+      color: 'primary',
+      disabled: false
     }
   },
   row: {

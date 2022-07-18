@@ -37,6 +37,7 @@ class TestStore {
 
   modifyStyle(type, style) {
     this.comDetail.attribute[type] = style
+    console.log(this.comDetail)
   }
 
   chooseUi(type, value) {
