@@ -11,10 +11,8 @@ const items = colors.map((color, index) => (
   </Swiper.Item>
 ))
 
-const App = () => (
+export default () => (
   <Style>
     <Swiper autoplay>{items}</Swiper>
   </Style>
 )
-
-export default App

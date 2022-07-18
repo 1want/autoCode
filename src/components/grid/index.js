@@ -1,9 +1,7 @@
 import { Button } from 'antd-mobile'
 
-const App = () => (
+export default () => (
   <Button value='default' className='btn'>
     grid
   </Button>
 )
-
-export default App

@@ -3,36 +3,48 @@ import { Button } from 'antd-mobile'
 
 const Types = props => {
   const { type, size } = props.attr
-  const types = ['success', 'primary', 'danger', 'default']
-  return (
-    <p>
-      属性选择:
+  const color = ['success', 'primary', 'danger', 'default']
+  const sizes = ['mini', 'normal', 'large']
+
+  const Select = ({ arr, style, value }) => {
+    return (
       <select
-        value={type}
-        onChange={e => store.modifyStyle('type', e.target.value)}>
-        {types.map(item => (
+        value={value}
+        onChange={e => store.modifyStyle(style, e.target.value)}>
+        {arr.map(item => (
           <option key={item} value={item}>
             {item}
           </option>
         ))}
       </select>
-    </p>
+    )
+  }
+
+  return (
+    <div>
+      <p>
+        颜色选择:
+        <Select {...{ arr: color, style: 'type', value: type }}></Select>
+      </p>
+      <p>
+        尺寸选择:
+        <Select {...{ arr: sizes, style: 'size', value: size }}></Select>
+      </p>
+    </div>
   )
 }
 
-const App = props => {
+export default props => {
   const { property, type, size } = props || {}
   return (
     <>
       {property ? (
         <Types attr={props}></Types>
       ) : (
-        <Button color={type} className='btn'>
+        <Button color={type} size={size} className='btn'>
           btn
         </Button>
       )}
     </>
   )
 }
-
-export default App
