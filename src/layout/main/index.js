@@ -33,7 +33,7 @@ const App = () => {
     <Wrapper>
       {show && <Ts isShow={isShow}></Ts>}
       <p className='operation'>
-        <span data-text='复制代码' onClick={() => copy()} id='copyTmp'>
+        <span data-text='复制代码' onClick={copy} id='copyTmp'>
           copy
         </span>
         <span data-text='清空视图' onClick={() => store.clear()}>
@@ -43,12 +43,10 @@ const App = () => {
           set
         </span>
       </p>
-      {/* 是否可用createElement改进这个地方 */}
-      {/* {每次当有一个属性被更改时，所有组件都会被重新渲染一次，如何优化} */}
       <div className='view-list'>
         {store.components.map((item, index) => (
           <div onClick={() => store.chooseComponents(item)} key={index}>
-            {module[item.tag].name(store.components[index])}
+            {module[item.tag].name(store.components[index].attribute)}
           </div>
         ))}
       </div>

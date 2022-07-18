@@ -2,7 +2,9 @@ import { makeAutoObservable } from 'mobx'
 
 class TestStore {
   components = []
-  comDetail = {}
+  comDetail = {
+    attribute: {}
+  }
   id = 0
   cli = ''
   ui = 'van-'
@@ -34,7 +36,7 @@ class TestStore {
   }
 
   modifyStyle(type, style) {
-    this.comDetail[type] = style
+    this.comDetail.attribute[type] = style
   }
 
   chooseUi(type, value) {

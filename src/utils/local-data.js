@@ -8,11 +8,13 @@ import TabBar from '@/components/tab-bar/index.js'
 
 const modules = {
   button: {
-    types: 'primary',
     name: Button,
     comName: '按钮',
     tag: 'button',
-    size: 'normal'
+    attribute: {
+      size: 'normal',
+      type: 'primary'
+    }
   },
   row: {
     justify: 'center',
