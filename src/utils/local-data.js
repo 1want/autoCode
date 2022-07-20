@@ -42,7 +42,11 @@ const modules = {
   swiper: {
     name: Swiper,
     comName: '轮播',
-    tag: 'swiper'
+    tag: 'swiper',
+    attribute: {
+      autoplay: true,
+      duration: 1500
+    }
   },
   grid: {
     name: Grid,

@@ -1,13 +1,11 @@
 import { Select, Radios } from '@/components/select'
 import { Button } from 'antd-mobile'
 
-import { DivStyle } from './style'
-
 const Types = ({ color, size, disabled }) => {
   const colorArr = ['success', 'primary', 'danger', 'default']
   const sizeArr = ['mini', 'normal', 'large']
   return (
-    <DivStyle>
+    <>
       <div className='property'>
         <span>颜色选择:</span>
         <Select {...{ arr: colorArr, style: 'color', value: color }}></Select>
@@ -18,9 +16,9 @@ const Types = ({ color, size, disabled }) => {
       </div>
       <div className='property'>
         <span>是否禁用:</span>
-        <Radios {...disabled}></Radios>
+        <Radios {...{ type: 'disabled', value: disabled }}></Radios>
       </div>
-    </DivStyle>
+    </>
   )
 }
 
@@ -32,7 +30,7 @@ export default props => {
         <Types {...props}></Types>
       ) : (
         <Button color={color} size={size} disabled={disabled} className='btn'>
-          btn
+          按钮
         </Button>
       )}
     </>

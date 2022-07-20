@@ -20,12 +20,12 @@ export const Select = ({ arr, style, value }) => (
   </select>
 )
 
-export const Radios = ({ disabled }) => {
+export const Radios = ({ type, value }) => {
   return (
     <Radio.Group
-      value={disabled}
+      value={value}
       onChange={val => {
-        store.modifyStyle('disabled', val)
+        store.modifyStyle(type, val)
       }}>
       <Radio value={true}>是</Radio>
       <Radio value={false}>否</Radio>
