@@ -6,24 +6,18 @@ class TestStore {
     attribute: {}
   }
   id = 0
-  cli = ''
-  ui = 'van-'
 
   constructor() {
     // 自动监听所有属性
     makeAutoObservable(this)
   }
 
-  // computed
+  // computed  是否具有缓存属性？ 用来优化一些重复刷新组件的地方？？
   // get price() {
   //   return `$${this.amount * 100}`
   // }
 
   // action
-
-  add() {
-    this.num++
-  }
   addComponent(com) {
     this.components.push({
       ...com,
@@ -37,11 +31,6 @@ class TestStore {
 
   modifyStyle(type, style) {
     this.comDetail.attribute[type] = style
-    console.log(this.comDetail)
-  }
-
-  chooseUi(type, value) {
-    this[type] = value
   }
 
   clear() {

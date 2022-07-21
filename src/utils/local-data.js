@@ -10,39 +10,39 @@ const modules = {
   button: {
     name: Button,
     comName: '按钮',
-    tag: 'button',
+    tag: 'van-button',
     attribute: {
       size: 'normal',
       color: 'primary',
       disabled: false
     }
   },
-  row: {
-    justify: 'center',
-    name: Row,
-    comName: '布局',
-    tag: 'row'
-  },
-  field: {
-    type: 'text',
-    name: Field,
-    comName: '输入框',
-    tag: 'field',
-    bind: '',
-    disabled: false
-  },
-  search: {
-    name: Search,
-    comName: '搜索',
-    tag: 'search',
-    icon: 'search',
-    bgColor: '#fff',
-    bind: ''
-  },
+  // row: {
+  //   justify: 'center',
+  //   name: Row,
+  //   comName: '布局',
+  //   tag: 'row'
+  // },
+  // field: {
+  //   type: 'text',
+  //   name: Field,
+  //   comName: '输入框',
+  //   tag: 'field',
+  //   bind: '',
+  //   disabled: false
+  // },
+  // search: {
+  //   name: Search,
+  //   comName: '搜索',
+  //   tag: 'search',
+  //   attribute: {
+  //     icon: 'search'
+  //   }
+  // },
   swiper: {
     name: Swiper,
     comName: '轮播',
-    tag: 'swiper',
+    tag: 'van-swiper',
     attribute: {
       autoplay: true,
       duration: 1500
@@ -51,15 +51,21 @@ const modules = {
   grid: {
     name: Grid,
     comName: '宫格',
-    tag: 'grid',
-    columnNum: 3,
-    allNum: 6
+    tag: 'van-grid',
+    attribute: {
+      column: 3,
+      allNum: 6
+    }
   },
   tabBar: {
     name: TabBar,
     comName: '标签栏',
-    tag: 'tabbar',
-    position: true
+    tag: 'van-tabBar',
+    attribute: {
+      size: 'normal',
+      color: 'primary',
+      disabled: false
+    }
   }
 }
 
