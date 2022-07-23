@@ -6,7 +6,7 @@
  *
  */
 import store from '@/store'
-import { Radio } from 'antd-mobile'
+import { Radio } from 'react-vant'
 
 export const Select = ({ arr, style, value }) => (
   <select
@@ -23,12 +23,13 @@ export const Select = ({ arr, style, value }) => (
 export const Radios = ({ type, value }) => {
   return (
     <Radio.Group
+      direction='horizontal'
       value={value}
       onChange={val => {
         store.modifyStyle(type, val)
       }}>
-      <Radio value={true}>是</Radio>
-      <Radio value={false}>否</Radio>
+      <Radio name={true}>是</Radio>
+      <Radio name={false}>否</Radio>
     </Radio.Group>
   )
 }

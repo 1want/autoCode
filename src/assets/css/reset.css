@@ -23,19 +23,3 @@ ol {
 a {
   text-decoration: none;
 }
-
-.txt-over {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.adm-button {
-  width: 100px;
-  font-size: 16px;
-  font-family: cursive;
-}
-
-.adm-input-element {
-  border: 1px solid #eee;
-}

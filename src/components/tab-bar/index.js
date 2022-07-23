@@ -1,38 +1,31 @@
 import { Radios } from '@/components/select'
 import store from '@/store'
-import { TabBar } from 'antd-mobile'
-import {
-  AppOutline,
-  MessageOutline,
-  MessageFill,
-  UnorderedListOutline,
-  UserOutline
-} from 'antd-mobile-icons'
+import { Tabbar } from 'react-vant'
 
 const tabs = [
   {
     key: 'home',
     title: '首页',
-    icon: <AppOutline />
+    icon: ''
   },
   {
     key: 'todo',
     title: '我的待办',
-    icon: <UnorderedListOutline />
+    icon: ''
   },
   {
     key: 'message',
     title: '我的消息',
-    icon: <AppOutline />
+    icon: ''
   },
   {
     key: 'personalCenter',
     title: '个人中心',
-    icon: <UserOutline />
+    icon: ''
   }
 ]
 const items = tabs.map(item => (
-  <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+  <Tabbar.Item key={item.key} title={item.title} />
 ))
 
 const Types = ({ duration, autoplay }) => {
@@ -57,5 +50,5 @@ const Types = ({ duration, autoplay }) => {
 
 export default props => {
   const { property, autoplay, duration } = props || {}
-  return <>{property ? <Types {...props}></Types> : <TabBar>{items}</TabBar>}</>
+  return <>{property ? <Types {...props}></Types> : <Tabbar>{items}</Tabbar>}</>
 }

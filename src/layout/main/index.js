@@ -2,7 +2,7 @@ import store from '@/store'
 import { observer } from 'mobx-react'
 import buildTemplate from '@/utils/generator'
 import Clipboard from 'clipboard'
-import { Toast } from 'antd-mobile'
+import { Toast } from 'react-vant'
 
 import { Wrapper } from './style'
 const copy = () => {

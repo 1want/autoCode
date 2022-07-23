@@ -1,7 +1,7 @@
-import { Button } from 'antd-mobile'
+import { Button } from 'react-vant'
 
 export default () => (
-  <Button value='default' className='btn'>
+  <Button type='default' className='btn'>
     row
   </Button>
 )

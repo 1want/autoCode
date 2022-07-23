@@ -1,4 +1,4 @@
-import { Swiper } from 'antd-mobile'
+import { Swiper } from 'react-vant'
 import { Radios } from '@/components/select'
 import store from '@/store'
 

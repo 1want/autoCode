@@ -1,5 +1,5 @@
 import module from '@/utils/local-data.js'
-import { Button } from 'antd-mobile'
+import { Button } from 'react-vant'
 import { ButtonStyle } from './style'
 
 import { observer } from 'mobx-react'
@@ -11,8 +11,9 @@ const App = () => {
       {Object.keys(module).map(item => {
         return (
           <Button
-            color='primary'
-            fill='outline'
+            type='primary'
+            plain
+            hairline
             key={item}
             className='btn'
             onClick={() => store.addComponent(module[item], item)}>
