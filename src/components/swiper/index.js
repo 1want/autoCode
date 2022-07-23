@@ -6,11 +6,6 @@ const attr = [
     title: '循环间隔',
     type: 'duration',
     com: 'input'
-  },
-  {
-    title: '开启循环',
-    type: 'loop',
-    com: 'radio'
   }
 ]
 
@@ -24,13 +19,13 @@ const items = colors.map((color, index) => (
 ))
 
 export default props => {
-  const { property, loop, duration } = props || {}
+  const { property, duration } = props || {}
   return (
     <>
       {property ? (
         AttrList(attr, props)
       ) : (
-        <Swiper loop={loop} autoplay={duration}>
+        <Swiper loop autoplay={duration}>
           {items}
         </Swiper>
       )}
