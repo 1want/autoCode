@@ -7,29 +7,49 @@
  */
 import store from '@/store'
 import { Radio } from 'react-vant'
+import { Style } from './style'
 
-export const Select = ({ arr, style, value }) => (
-  <select
-    value={value}
-    onChange={e => store.modifyStyle(style, e.target.value)}>
-    {arr.map(item => (
-      <option key={item} value={item}>
-        {item}
-      </option>
-    ))}
-  </select>
+export const Select = ({ arr, type, value }) => (
+  <Style>
+    <select
+      className='select'
+      value={value}
+      onChange={e => store.modifyStyle(type, e.target.value)}>
+      {arr.map(item => (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      ))}
+    </select>
+  </Style>
 )
 
-export const Radios = ({ type, value }) => {
-  return (
-    <Radio.Group
-      direction='horizontal'
-      value={value}
-      onChange={val => {
-        store.modifyStyle(type, val)
-      }}>
-      <Radio name={true}>是</Radio>
-      <Radio name={false}>否</Radio>
-    </Radio.Group>
-  )
+export const Radios = ({ type, value }) => (
+  <Radio.Group
+    direction='horizontal'
+    value={value}
+    onChange={val => {
+      store.modifyStyle(type, val)
+    }}>
+    <Radio name={true}>是</Radio>
+    <Radio name={false}>否</Radio>
+  </Radio.Group>
+)
+
+export const AttrList = (attributes, props) => {
+  return attributes.map(item => (
+    <div className='property' key={item.title}>
+      <span className='attribute-name'>{item.title}:</span>
+      {item.arr?.length ? (
+        <Select
+          {...{
+            arr: item.arr,
+            type: item.type,
+            value: props[item.type]
+          }}></Select>
+      ) : (
+        <Radios {...{ type: item.type, value: props[item.type] }}></Radios>
+      )}
+    </div>
+  ))
 }

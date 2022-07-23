@@ -8,8 +8,7 @@
 .property .attribute-name {
   width: 85px;
 }
-.btn {
+Button {
   width: 100px;
   font-size: 16px;
-  font-family: cursive;
 }
