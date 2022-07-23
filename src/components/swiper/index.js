@@ -1,8 +1,18 @@
 import { Swiper } from 'react-vant'
-import { Radios } from '@/components/select'
-import store from '@/store'
+import { AttrList } from '@/components/select'
 
-import { Style } from './style'
+const attr = [
+  {
+    title: '循环间隔',
+    type: 'duration',
+    com: 'input'
+  },
+  {
+    title: '开启循环',
+    type: 'loop',
+    com: 'radio'
+  }
+]
 
 const colors = ['blue', 'red']
 const items = colors.map((color, index) => (
@@ -13,38 +23,16 @@ const items = colors.map((color, index) => (
   </Swiper.Item>
 ))
 
-const Types = ({ duration, autoplay }) => {
-  return (
-    <>
-      <div className='property'>
-        循环间隔:
-        <input
-          type='text'
-          value={duration}
-          onChange={e => store.modifyStyle('duration', e.target.value)}
-        />
-      </div>
-      <div className='property'>
-        自动循环:
-        <Radios {...{ type: 'autoplay', value: autoplay }}></Radios>
-      </div>
-      <div className='property'>上传图片</div>
-    </>
-  )
-}
-
 export default props => {
-  const { property, autoplay, duration } = props || {}
+  const { property, loop, duration } = props || {}
   return (
     <>
       {property ? (
-        <Types {...props}></Types>
+        AttrList(attr, props)
       ) : (
-        <Style>
-          <Swiper loop autoplay={autoplay} autoplayInterval={duration}>
-            {items}
-          </Swiper>
-        </Style>
+        <Swiper loop={loop} autoplay={duration}>
+          {items}
+        </Swiper>
       )}
     </>
   )

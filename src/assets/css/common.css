@@ -12,3 +12,25 @@ Button {
   width: 100px;
   font-size: 16px;
 }
+
+select {
+  background: transparent;
+  width: 100px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #e1dcdc;
+  border-radius: 4px;
+  height: 34px;
+  -webkit-appearance: none;
+}
+
+.swiper-content {
+  height: 120px;
+}
+
+.rv-tabbar--fixed {
+  width: 375px;
+  margin-left: 49%;
+  transform: translate(-49%);
+  margin-bottom: 25px;
+}

@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   background: rgb(249, 249, 249);
   height: 100vh;
+  overflow-y: scroll;
   .operation {
     padding: 20px 0;
     span {

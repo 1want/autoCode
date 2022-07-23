@@ -1,31 +1,33 @@
 import { AttrList } from '@/components/select'
 import { Button } from 'react-vant'
 
-const colorArr = ['success', 'primary', 'danger', 'default']
-const sizeArr = ['mini', 'normal', 'large']
-
-const _attr = [
+const attr = [
   {
     title: '颜色选择',
-    arr: colorArr,
-    type: 'type'
+    arr: ['success', 'primary', 'danger', 'default'],
+    type: 'type',
+    com: 'select'
   },
   {
     title: '尺寸选择',
-    arr: sizeArr,
-    type: 'size'
+    arr: ['mini', 'normal', 'large'],
+    type: 'size',
+    com: 'select'
   },
   {
     title: '是否禁用',
-    type: 'disabled'
+    type: 'disabled',
+    com: 'radio'
   },
   {
     title: '朴素按钮',
-    type: 'plain'
+    type: 'plain',
+    com: 'radio'
   },
   {
     title: '细边框',
-    type: 'hairline'
+    type: 'hairline',
+    com: 'radio'
   }
 ]
 
@@ -35,7 +37,7 @@ export default props => {
   return (
     <>
       {property ? (
-        AttrList(_attr, { type, size, disabled, plain, hairline })
+        AttrList(attr, props)
       ) : (
         <Button
           plain={plain}

@@ -46,8 +46,7 @@ const modules = {
     comName: '轮播',
     tag: 'van-swiper',
     attribute: {
-      autoplay: true,
-      duration: 1500
+      duration: 2000
     }
   },
   grid: {
