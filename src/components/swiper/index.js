@@ -12,9 +12,7 @@ const attr = [
 const colors = ['blue', 'red']
 const items = colors.map((color, index) => (
   <Swiper.Item key={index}>
-    <div className='swiper-content' style={{ background: color }}>
-      {index + 1}
-    </div>
+    <div className='swiper-content' style={{ background: color }}></div>
   </Swiper.Item>
 ))
 

@@ -5,6 +5,7 @@ import Swiper from '@/components/swiper/index.js'
 // import Field from '@/components/field/index.js'
 import Grid from '@/components/grid/index.js'
 import TabBar from '@/components/tab-bar/index.js'
+import NavBar from '@/components/nav-bar/index.js'
 
 const modules = {
   button: {
@@ -66,6 +67,16 @@ const modules = {
       size: 'normal',
       color: 'primary',
       disabled: false
+    }
+  },
+  navBar: {
+    name: NavBar,
+    comName: '导航栏',
+    tag: 'van-tabBar',
+    attribute: {
+      title: 'normal',
+      leftText: 'primary',
+      rightText: ''
     }
   }
 }

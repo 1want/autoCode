@@ -8,8 +8,10 @@
  */
 import store from '@/store'
 import { Radio } from 'react-vant'
+import * as icon from '@react-vant/icons'
+import { IconStyle } from '@/assets/css/AppStyle.js'
 
-const Select = ({ arr, type, value }) => (
+export const Select = ({ arr, type, value }) => (
   <select
     className='select'
     value={value}
@@ -22,7 +24,7 @@ const Select = ({ arr, type, value }) => (
   </select>
 )
 
-const Radios = ({ type, value }) => (
+export const Radios = ({ type, value }) => (
   <Radio.Group
     direction='horizontal'
     value={value}
@@ -34,18 +36,39 @@ const Radios = ({ type, value }) => (
   </Radio.Group>
 )
 
-const Input = ({ type, value }) => (
-  <input
-    type='text'
-    value={value}
-    onChange={e => store.modifyStyle(type, Number(e.target.value))}
-  />
+export const Input = ({ type, value }) => {
+  const n = typeof value === 'number'
+  return (
+    <input
+      type='text'
+      value={value}
+      onChange={e =>
+        store.modifyStyle(type, n ? Number(e.target.value) : e.target.value)
+      }
+    />
+  )
+}
+
+export const Icon = (type, value) => (
+  <IconStyle>
+    {Object.keys(icon).map(item => (
+      <div
+        key={item}
+        className='icon-item'
+        onClick={() => {
+          store.modifyStyle(type, item)
+        }}>
+        {icon[item]()}
+      </div>
+    ))}
+  </IconStyle>
 )
 
 const com = {
   select: Select,
   radio: Radios,
-  input: Input
+  input: Input,
+  icon: Icon
 }
 
 export const AttrList = (attributes, props) => {
