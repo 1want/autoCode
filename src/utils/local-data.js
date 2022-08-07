@@ -72,7 +72,7 @@ const modules = {
   navBar: {
     name: NavBar,
     comName: '导航栏',
-    tag: 'van-tabBar',
+    tag: 'van-navBar',
     attribute: {
       title: 'normal',
       leftText: 'primary',

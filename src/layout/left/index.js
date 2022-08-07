@@ -1,28 +1,32 @@
 import module from '@/utils/local-data.js'
+import { active } from '@/template'
 import { Button } from 'react-vant'
-import { ButtonStyle } from './style'
-
 import { observer } from 'mobx-react'
 import store from '@/store'
 
-const App = () => {
+import './style.css'
+
+const com = Object.keys(module).map(item => {
   return (
-    <ButtonStyle>
-      {Object.keys(module).map(item => {
-        return (
-          <Button
-            type='primary'
-            plain
-            hairline
-            key={item}
-            className='btn'
-            onClick={() => store.addComponent(module[item], item)}>
-            {module[item].comName}
-          </Button>
-        )
-      })}
-    </ButtonStyle>
+    <Button
+      type='primary'
+      plain
+      hairline
+      key={item}
+      className='btn'
+      onClick={() => store.addComponent(module[item], item)}>
+      {module[item].comName}
+    </Button>
   )
-}
+})
+
+const App = () => (
+  <div className='content'>
+    <p>组件</p>
+    {com}
+    {/* <p>模板</p>
+    {active()} */}
+  </div>
+)
 
 export default observer(App)

@@ -5,6 +5,7 @@ import Clipboard from 'clipboard'
 import { Toast } from 'react-vant'
 
 import { Wrapper } from './style'
+
 const copy = () => {
   const tmp = buildTemplate(store.components)
   var clipboard = new Clipboard('#copyTmp', {
@@ -20,6 +21,12 @@ const copy = () => {
 }
 
 const App = () => {
+  const component = store.components.map((item, index) => (
+    <div onClick={() => store.chooseComponents(item)} key={index}>
+      <item.name {...store.components[index].attribute} />
+    </div>
+  ))
+
   return (
     <Wrapper>
       <p className='operation'>
@@ -30,13 +37,7 @@ const App = () => {
           clear
         </span>
       </p>
-      <div className='view-list'>
-        {store.components.map((item, index) => (
-          <div onClick={() => store.chooseComponents(item)} key={index}>
-            {item.name(store.components[index].attribute)}
-          </div>
-        ))}
-      </div>
+      <div className='view-list'>{component}</div>
     </Wrapper>
   )
 }

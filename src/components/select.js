@@ -9,7 +9,7 @@
 import store from '@/store'
 import { Radio } from 'react-vant'
 import * as icon from '@react-vant/icons'
-import { IconStyle } from '@/assets/css/AppStyle.js'
+import '../assets/css/select.css'
 
 export const Select = ({ arr, type, value }) => (
   <select
@@ -50,7 +50,7 @@ export const Input = ({ type, value }) => {
 }
 
 export const Icon = (type, value) => (
-  <IconStyle>
+  <div className='icon'>
     {Object.keys(icon).map(item => (
       <div
         key={item}
@@ -61,7 +61,7 @@ export const Icon = (type, value) => (
         {icon[item]()}
       </div>
     ))}
-  </IconStyle>
+  </div>
 )
 
 const com = {

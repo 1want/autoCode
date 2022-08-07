@@ -14,9 +14,10 @@ const attr = [
     com: 'icon'
   }
 ]
-let show = false
 
 export default props => {
+  console.log(props)
+  const show = false
   const { property, leftText, rightText } = props || {}
   return (
     <>
@@ -28,15 +29,10 @@ export default props => {
           </div>
           <div className='property'>
             <span className='attribute-name'>右侧图标:</span>
-            <Button
-              type='default'
-              plain
-              hairline
-              onClick={() => {
-                show = true
-              }}>
+            <Button type='default' plain hairline onClick={() => {}}>
               修改图标
             </Button>
+            {show && <Icon></Icon>}
           </div>
         </div>
       ) : (
