@@ -1,0 +1,11 @@
+.news-wrapper .content {
+  display: flex;
+}
+.news-wrapper .content img {
+  width: 120px;
+}
+.news-wrapper .content .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

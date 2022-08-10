@@ -18,15 +18,11 @@ const items = colors.map((color, index) => (
 
 export default props => {
   const { property, duration } = props || {}
-  return (
-    <>
-      {property ? (
-        AttrList(attr, props)
-      ) : (
-        <Swiper loop autoplay={duration}>
-          {items}
-        </Swiper>
-      )}
-    </>
+  return property ? (
+    AttrList(attr, props)
+  ) : (
+    <Swiper loop autoplay={duration}>
+      {items}
+    </Swiper>
   )
 }

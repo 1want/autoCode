@@ -1,31 +1,31 @@
-import module from '@/utils/local-data.js'
-import { active } from '@/template'
+import { modules, layout } from '@/utils/local-data.js'
 import { Button } from 'react-vant'
 import { observer } from 'mobx-react'
 import store from '@/store'
 
 import './style.css'
 
-const com = Object.keys(module).map(item => {
-  return (
-    <Button
-      type='primary'
-      plain
-      hairline
-      key={item}
-      className='btn'
-      onClick={() => store.addComponent(module[item], item)}>
-      {module[item].comName}
-    </Button>
-  )
-})
+const com = module =>
+  Object.keys(module).map(item => {
+    return (
+      <Button
+        type='primary'
+        plain
+        hairline
+        key={item}
+        className='btn'
+        onClick={() => store.addComponent(module[item], item)}>
+        {module[item].comName}
+      </Button>
+    )
+  })
 
 const App = () => (
-  <div className='content'>
+  <div className='left-content'>
     <p>组件</p>
-    {com}
-    {/* <p>模板</p>
-    {active()} */}
+    {com(modules)}
+    <p>布局</p>
+    {com(layout)}
   </div>
 )
 

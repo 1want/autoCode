@@ -1,11 +1,11 @@
 import Button from '@/components/button/index.js'
-// import Row from '@/components/row/index.js'
 import Swiper from '@/components/swiper/index.js'
-// import Search from '@/components/search/index.js'
-// import Field from '@/components/field/index.js'
 import Grid from '@/components/grid/index.js'
 import TabBar from '@/components/tab-bar/index.js'
 import NavBar from '@/components/nav-bar/index.js'
+import waterfall from '@/components/waterfall/index.js'
+import news from '@/components/news/index.js'
+import listImg from '@/components/list-img/index.js'
 
 const modules = {
   button: {
@@ -20,28 +20,6 @@ const modules = {
       plain: false
     }
   },
-  // row: {
-  //   justify: 'center',
-  //   name: Row,
-  //   comName: '布局',
-  //   tag: 'row'
-  // },
-  // field: {
-  //   type: 'text',
-  //   name: Field,
-  //   comName: '输入框',
-  //   tag: 'field',
-  //   bind: '',
-  //   disabled: false
-  // },
-  // search: {
-  //   name: Search,
-  //   comName: '搜索',
-  //   tag: 'search',
-  //   attribute: {
-  //     icon: 'search'
-  //   }
-  // },
   swiper: {
     name: Swiper,
     comName: '轮播',
@@ -81,4 +59,25 @@ const modules = {
   }
 }
 
-export default modules
+const layout = {
+  waterfall: {
+    name: waterfall,
+    comName: '瀑布流',
+    tag: 'div',
+    attribute: {
+      column: 2
+    }
+  },
+  news: {
+    name: news,
+    comName: '信息',
+    tag: 'div'
+  },
+  list: {
+    name: listImg,
+    comName: '横向图片',
+    tag: 'div'
+  }
+}
+
+export { modules, layout }

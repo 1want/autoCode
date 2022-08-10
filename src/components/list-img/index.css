@@ -1,0 +1,16 @@
+.list-img-wrapper {
+  display: flex;
+  overflow-y: scroll;
+}
+.list-img-wrapper::-webkit-scrollbar {
+  width: 0;
+}
+.list-img-wrapper .content {
+  margin-right: 20px;
+}
+.list-img-wrapper .content img {
+  border-radius: 4px;
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+}
