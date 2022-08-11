@@ -24,7 +24,7 @@ jobs:
 
       # 部署到 GitHub Pages
       - name: Deploy
-        uses: https://1want.github.io/autoCode
+        uses: 1want/autoCode@v3
         with:
           ACCESS_TOKEN: ${{ TOKEN }}
           BRANCH: master
