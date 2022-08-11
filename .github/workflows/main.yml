@@ -4,7 +4,8 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
+
 # 任务
 jobs:
   build-and-deploy:
@@ -26,5 +27,5 @@ jobs:
         uses: 1want/autoCode@v3
         with:
           ACCESS_TOKEN: ${{ TOKEN }}
-          BRANCH: main
+          BRANCH: master
           FOLDER: /dist
