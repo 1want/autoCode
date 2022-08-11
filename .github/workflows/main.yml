@@ -26,5 +26,5 @@ jobs:
         uses: 1want/autoCode@v3
         with:
           ACCESS_TOKEN: ${{ TOKEN }}
-          BRANCH: master
+          BRANCH: main
           FOLDER: /dist
