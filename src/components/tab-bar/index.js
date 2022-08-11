@@ -4,7 +4,7 @@ import { FriendsO, HomeO, Search, SettingO } from '@react-vant/icons'
 
 const attr = []
 
-const TabBar = props => {
+const MyTabBar = props => {
   const { property } = props || {}
   return (
     <>
@@ -22,4 +22,4 @@ const TabBar = props => {
   )
 }
 
-export default TabBar
+export default MyTabBar

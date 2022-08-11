@@ -16,7 +16,7 @@ const items = colors.map((color, index) => (
   </Swiper.Item>
 ))
 
-const Swiper = props => {
+const MySwiper = props => {
   const { property, duration } = props || {}
   return property ? (
     AttrList(attr, props)
@@ -27,4 +27,4 @@ const Swiper = props => {
   )
 }
 
-export default Swiper
+export default MySwiper

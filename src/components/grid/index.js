@@ -15,7 +15,7 @@ const attr = [
   }
 ]
 
-const Grid = props => {
+const MyGrid = props => {
   const { property, column, allNum } = props || {}
   return (
     <>
@@ -32,4 +32,4 @@ const Grid = props => {
   )
 }
 
-export default Grid
+export default MyGrid
