@@ -1,15 +1,11 @@
 import styled from 'styled-components'
 export const Wrapper = styled.div`
-  ::-webkit-scrollbar {
-    width: 0;
-  }
   width: 540px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: rgb(249, 249, 249);
   height: 100vh;
-  overflow-y: scroll;
   .operation {
     padding: 20px 0;
     span {
@@ -40,5 +36,8 @@ export const Wrapper = styled.div`
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 `

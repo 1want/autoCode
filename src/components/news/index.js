@@ -10,8 +10,8 @@ const Items = imgs.map(item => (
   <div className='content' key={item}>
     <img src={item} alt='' />
     <div className='info'>
-      <div>title</div>
-      <span>hello</span>
+      <div>这里是title</div>
+      <span>我是info</span>
     </div>
   </div>
 ))

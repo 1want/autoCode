@@ -8,7 +8,6 @@
  */
 import store from '@/store'
 import { Radio } from 'react-vant'
-import * as icon from '@react-vant/icons'
 import '../assets/css/select.css'
 
 export const Select = ({ arr, type, value }) => (
@@ -49,26 +48,10 @@ export const Input = ({ type, value }) => {
   )
 }
 
-export const Icon = (type, value) => (
-  <div className='icon'>
-    {Object.keys(icon).map(item => (
-      <div
-        key={item}
-        className='icon-item'
-        onClick={() => {
-          store.modifyStyle(type, item)
-        }}>
-        {icon[item]()}
-      </div>
-    ))}
-  </div>
-)
-
 const com = {
   select: Select,
   radio: Radios,
-  input: Input,
-  icon: Icon
+  input: Input
 }
 
 export const AttrList = (attributes, props) => {

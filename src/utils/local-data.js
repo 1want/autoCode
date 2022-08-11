@@ -52,9 +52,7 @@ const modules = {
     comName: '导航栏',
     tag: 'van-navBar',
     attribute: {
-      title: 'normal',
-      leftText: 'primary',
-      rightText: ''
+      leftText: 'primary'
     }
   }
 }
