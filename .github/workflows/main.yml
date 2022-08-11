@@ -1,34 +1,31 @@
-name: upload
+name: Deploy GitHub Pages
 
-on: workflow_dispatch
+# 触发条件：在 push 到 master 分支后
+on:
+  push:
+    branches:
+      - master
 
+# 任务
 jobs:
-  # 任务ID
-  build:
-    # 运行环境
+  build-and-deploy:
+    # 服务器环境：最新版 Ubuntu
     runs-on: ubuntu-latest
-    # 步骤
     steps:
-      # 使用别人的action
-      - uses: actions/checkout@v2
-      # 步骤名称
-      - name: npm install
-        # 步骤执行指令
-        run: npm install
-      - name: npm run build
-        run: npm run build
-      # 命名这个任务为发布Deploy
-      - name: Deploy
-        # 因为构建之后，需要把代码上传到服务器上，所以需要连接到ssh，并且做一个拷贝操作
-        uses: cross-the-world/scp-pipeline@master
-        env:
-          WELCOME: 'ssh scp ssh pipelines'
-          LASTSSH: 'Doing something after copying'
+      # 拉取代码
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          user: ${{ secrets.USERNAME }}
-          pass: ${{ secrets.PASSWORD }}
-          connect_timeout: 10s
-          local: './build/*'
-          remote: /www/wwwroot/http
+          persist-credentials: false
+
+      # 生成静态文件
+      - name: Build
+        run: npm install && npm run build
+
+      # 部署到 GitHub Pages
+      - name: Deploy
+        uses: https://1want.github.io/autoCode
+        with:
+          ACCESS_TOKEN: ${{ TOKEN }}
+          BRANCH: master
+          FOLDER: /dist

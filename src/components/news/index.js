@@ -16,6 +16,7 @@ const Items = imgs.map(item => (
   </div>
 ))
 
-export default () => {
-  return <div className='news-wrapper'>{Items}</div>
+export default props => {
+  const { property } = props
+  return property ? '' : <div className='news-wrapper'>{Items}</div>
 }
