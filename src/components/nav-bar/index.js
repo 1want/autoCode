@@ -11,7 +11,7 @@ const attr = [
   }
 ]
 
-export default props => {
+const NavBar = props => {
   const { property, leftText } = props || {}
   return (
     <>
@@ -27,3 +27,5 @@ export default props => {
     </>
   )
 }
+
+export default NavBar

@@ -31,7 +31,7 @@ const attr = [
   }
 ]
 
-export default props => {
+const Button = props => {
   const { property, type, size, disabled, plain, hairline } = props || {}
 
   return (
@@ -51,3 +51,4 @@ export default props => {
     </>
   )
 }
+export default Button

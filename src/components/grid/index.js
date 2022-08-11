@@ -15,7 +15,7 @@ const attr = [
   }
 ]
 
-export default props => {
+const Grid = props => {
   const { property, column, allNum } = props || {}
   return (
     <>
@@ -31,3 +31,5 @@ export default props => {
     </>
   )
 }
+
+export default Grid

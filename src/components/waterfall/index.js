@@ -24,7 +24,7 @@ const Items = imgs.map(item => (
   </div>
 ))
 
-export default props => {
+const Waterfall = props => {
   const { property, column } = props || {}
   return property ? (
     AttrList(attr, props)
@@ -34,3 +34,5 @@ export default props => {
     </div>
   )
 }
+
+export default Waterfall
