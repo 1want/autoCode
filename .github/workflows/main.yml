@@ -1,31 +1,20 @@
-name: Deploy GitHub Pages
-
-# 触发条件：在 push 到 master 分支后
-on:
-  push:
-    branches:
-      - main
-
-# 任务
+name: Build and Deploy
+on: [push]
 jobs:
   build-and-deploy:
-    # 服务器环境：最新版 Ubuntu
     runs-on: ubuntu-latest
     steps:
-      # 拉取代码
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
-      # 生成静态文件
-      - name: Build
-        run: npm install && npm run build
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
 
-      # 部署到 GitHub Pages
-      - name: Deploy
-        uses: 1want/autoCode@v3
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          # ACCESS_TOKEN: ${{ TOKEN }}
-          BRANCH: main
-          FOLDER: /dist
+          ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
