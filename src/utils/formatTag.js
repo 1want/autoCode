@@ -8,17 +8,17 @@ const addAttr = (dom, ele) => {
 }
 
 function formatTag(ele) {
-  let dom
   if (ele.tmp) {
-    dom = ele.tmp(ele.attribute)
+    return ele.tmp(ele.attribute)
   } else {
-    dom = `<${ele.tag}>${ele.comName}</${ele.tag}>`
-    // dom = document.createElement(ele.tag)
-    // dom.className = ele.className
-    // dom.innerText = ele.text || ''
-    // addAttr(dom, ele)
+    const box = document.createElement('div')
+    const dom = document.createElement(ele.tag)
+    ele.className && (dom.className = ele.className)
+    dom.innerText = ele.text || ''
+    addAttr(dom, ele)
+    box.appendChild(dom)
+    return box.innerHTML
   }
-  return dom
 }
 
 export default formatTag
