@@ -11,9 +11,10 @@ const copy = () => {
   var clipboard = new Clipboard('#copyTmp', {
     text: () => tmp
   })
+
   clipboard.on('success', () => {
-    Toast.show({
-      content: '复制成功',
+    Toast({
+      message: '复制成功',
       duration: 1500
     })
     clipboard.destroy()

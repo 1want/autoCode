@@ -10,11 +10,11 @@ import parserHtml from 'prettier/parser-html'
 import parserBabel from 'prettier/parser-babel'
 import prettier from 'prettier/standalone'
 
-// function vueTemplate(str) {
-//   return `<template>
-//       ${str}
-//   </template>`
-// }
+function vueTemplate(str) {
+  return `<template>
+      ${str}
+  </template>`
+}
 
 function parseComponents(arr) {
   let tmpString = ''
@@ -28,9 +28,8 @@ function parseComponents(arr) {
 
 function buildTemplate(components) {
   const com = parseComponents(components)
-  // let tmp = vueTemplate(com)
-
-  const formatTmp = prettier.format(com, {
+  let tmp = vueTemplate(com)
+  const formatTmp = prettier.format(tmp, {
     parser: 'html',
     plugins: [parserHtml, parserBabel],
     semi: false,

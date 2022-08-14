@@ -1,54 +1,24 @@
-const parseHtml = {
-  'van-button': item => {
-    return `<${item.tag} type="${item.type}" size="${item.size}">按钮</${item.tag}>`
-  },
-  'van-row': item => {
-    return `<${item.tag} justify="${item.justify}">
-              <van-col span="6">span: 8</van-col>
-              <van-col span="6">span: 8</van-col>
-              <van-col span="6">span: 8</van-col>
-            </${item.tag}>`
-  },
-  'van-field': item => {
-    return `<${item.tag} 
-              v-model="${item.bind}" 
-              disabled="${item.disabled}" 
-              type="${item.type}"
-            >
-            </${item.tag}>`
-  },
-  'van-search': item => {
-    return `<${item.tag} background="${item.bgColor}" left-icon="${item.icon}"></${item.tag}>`
-  },
-  'van-swiper': item => {
-    return `<${item.tag}>
-              <van-swipe-item>1</van-swipe-item>
-              <van-swipe-item>2</van-swipe-item>
-              <van-swipe-item>3</van-swipe-item>
-              <van-swipe-item>4</van-swipe-item>
-            </${item.tag}>`
-  },
-  'van-grid': item => {
-    return `<${item.tag} :column-num="${item.attribute.column}">
-              <van-grid-item v-for="(item,index) of ${item.attribute.allNum}" 
-              :key="index" 
-              :icon="item.icon || photo-o" 
-              :text="item.text || 文字" 
-            />
-            </${item.tag}>`
-  },
-  'van-tabBar': item => {
-    return `<${item.tag}>
-              <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-              <van-tabbar-item icon="search">标签</van-tabbar-item>
-              <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-              <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
-            </${item.tag}>`
+//给元素添加对应的属性
+const addAttr = (dom, ele) => {
+  if (ele.attribute) {
+    for (var key in ele.attribute) {
+      dom.setAttribute(key, ele.attribute[key])
+    }
   }
 }
 
-function formatTag(item) {
-  return parseHtml[item.tag](item)
+function formatTag(ele) {
+  let dom
+  if (ele.tmp) {
+    dom = ele.tmp(ele.attribute)
+  } else {
+    dom = `<${ele.tag}>${ele.comName}</${ele.tag}>`
+    // dom = document.createElement(ele.tag)
+    // dom.className = ele.className
+    // dom.innerText = ele.text || ''
+    // addAttr(dom, ele)
+  }
+  return dom
 }
 
 export default formatTag
