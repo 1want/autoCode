@@ -6,7 +6,7 @@ import NavBar from '@/components/nav-bar/index.js'
 import waterfall from '@/components/waterfall/index.js'
 import news from '@/components/news/index.js'
 import listImg from '@/components/list-img/index.js'
-import { waterfallTmp } from '@/template'
+import { waterfallTmp, newsTmp, listImgs } from '@/template'
 
 const modules = {
   button: {
@@ -27,11 +27,7 @@ const modules = {
     tag: 'van-swiper',
     attribute: {
       duration: 2000
-    },
-    state: {
-      arr: [1, 2, 3]
-    },
-    childKey: 'swiper-item'
+    }
   },
   grid: {
     name: Grid,
@@ -70,30 +66,22 @@ const layout = {
     attribute: {
       column: 2
     },
-    className: 'waterfall-wrapper',
+    style: 'waterfallStyle',
     ...waterfallTmp
   },
   news: {
     name: news,
     comName: '信息',
     tag: 'div',
-    className: 'news-wrapper',
-    isFor: true,
-    state: {
-      arr: [1, 2, 3]
-    },
-    childKey: 'div'
+    style: 'newsStyle',
+    ...newsTmp
   },
   list: {
     name: listImg,
     comName: '横向图片',
     tag: 'div',
-    className: 'list-wrapper',
-    isFor: true,
-    state: {
-      arr: [1, 2, 3]
-    },
-    childKey: 'div'
+    style: 'listImgStyle',
+    ...listImgs
   }
 }
 
