@@ -16,8 +16,9 @@ const Items = imgs.map(item => (
   </div>
 ))
 
-const ListImg = () => {
-  return <div className='list-img-wrapper'>{Items}</div>
+const ListImg = props => {
+  const { property } = props || {}
+  return property ? '' : <div className='list-img-wrapper'>{Items}</div>
 }
 
 export default ListImg
